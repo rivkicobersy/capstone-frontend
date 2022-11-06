@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsNew } from "./IngredientsNew";
+import { PantryItemsIndex } from "./PantryItemsIndex";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
@@ -22,10 +23,22 @@ export function Home() {
     });
   };
 
+  const [pantryItems, setPantryItems] = useState([]);
+
+  const handleIndexPantryItems = () => {
+    console.log("handleIndexPantryItems");
+    axios.get("http://localhost:3000/pantry_items.json").then((response) => {
+      console.log(response.data);
+      setPantryItems(response.data);
+    });
+  };
+
   useEffect(handleIndexIngredients, []);
+  useEffect(handleIndexPantryItems, []);
 
   return (
     <div>
+      <PantryItemsIndex pantryItems={pantryItems} />
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <IngredientsIndex ingredients={ingredients} />
     </div>
