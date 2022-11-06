@@ -11,6 +11,8 @@ export function IngredientsNew(props) {
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" />
+        </div>
+        <div>
           Image: <input name="image_url" type="text" />
         </div>
         <button type="submit">Create ingredient</button>

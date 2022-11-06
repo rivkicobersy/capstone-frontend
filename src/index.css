@@ -1,4 +1,7 @@
-#img
+img {
+  width: 200px;
+  
+}
 
 html {
   scroll-behavior: smooth;

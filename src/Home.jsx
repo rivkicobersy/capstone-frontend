@@ -33,6 +33,14 @@ export function Home() {
     });
   };
 
+  const handleCreatePantryItem = (params, successCallback) => {
+    console.log("handleCreatePantryItem", params);
+    axios.post("http://localhost:3000/pantry_items.json", params).then((response) => {
+      setPantryItems([...pantryItems, response.data]);
+      successCallback();
+    });
+  };
+
   useEffect(handleIndexIngredients, []);
   useEffect(handleIndexPantryItems, []);
 
@@ -40,7 +48,7 @@ export function Home() {
     <div>
       <PantryItemsIndex pantryItems={pantryItems} />
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
-      <IngredientsIndex ingredients={ingredients} />
+      <IngredientsIndex ingredients={ingredients} onCreatePantryItem={handleCreatePantryItem} />
     </div>
   );
 }
