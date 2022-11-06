@@ -12,3 +12,5 @@ export function PantryItemsIndex(props) {
     </div>
   );
 }
+
+// TODO change to seperate page
