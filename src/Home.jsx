@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IngredientsIndex } from "./IngredientsIndex";
-// import { PantryItemsIndex } from "./PantryItemsIndex";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
@@ -37,7 +36,6 @@ export function Home() {
 
   return (
     <div>
-      <PantryItemsIndex pantryItems={pantryItems} />
       <IngredientsIndex ingredients={ingredients} onCreatePantryItem={handleCreatePantryItem} />
     </div>
   );

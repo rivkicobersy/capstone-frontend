@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { LogoutLink } from "./LogoutLink";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -31,22 +30,25 @@ export function Login() {
 
   return (
     <div id="login">
-      <LogoutLink />
-      <h1>Login</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <div className="container">
+        <h1>Login</h1>
+        <ul>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+        <form onSubmit={handleSubmit}>
+          <div>
+            Email: <input name="email" className="form-control" type="email" />
+          </div>
+          <div>
+            Password: <input name="password" className="form-control" type="password" />
+          </div>
+          <button className="btn btn-primary mt-3" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

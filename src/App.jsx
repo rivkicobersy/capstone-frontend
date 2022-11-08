@@ -8,7 +8,7 @@ import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsIndexPage } from "./IngredientsIndexPage";
 import { IngredientsShowPage } from "./IngredientsShowPage";
 import { IngredientsNew } from "./IngredientsNew";
-export { PantryItemsIndex } from "./PantryItemsIndex";
+import { PantryItemsIndexPage } from "./PantryItemsIndexPage";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
         <Route path="/ingredients" element={<IngredientsIndex />} />
         <Route path="/ingredients/:id" element={<IngredientsShowPage />} />
         <Route path="/ingredients/new" element={<IngredientsNew />} />
+        <Route path="/pantry_items" element={<PantryItemsIndexPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

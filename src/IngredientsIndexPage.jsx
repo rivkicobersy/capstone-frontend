@@ -24,6 +24,7 @@ export function IngredientsIndexPage() {
           value={searchFilter}
           onChange={(event) => setSearchFilter(event.target.value)}
           type="text"
+          className="form-control"
           list="names"
         />
         <datalist id="names">
@@ -40,7 +41,7 @@ export function IngredientsIndexPage() {
                   <img src={ingredient.image_url} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-name">{ingredient.name}</h5>
-                    <a className="btn btn-primary" href={`/ingredients/${ingredient.id}`}>
+                    <a className="btn btn-primary mt-3" href={`/ingredients/${ingredient.id}`}>
                       More info
                     </a>
                   </div>

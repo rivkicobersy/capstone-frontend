@@ -6,23 +6,29 @@ export function IngredientsIndex(props) {
   };
 
   return (
-    <div className="container">
-      <h1>All ingredients</h1>
-      {props.ingredients.map((ingredient) => (
-        <div key={ingredient.id}>
-          <h2>{ingredient.name}</h2>
-          <img src={ingredient.image_url} alt="" />
-          <form onSubmit={handleSubmit}>
-            <div>
-              <input name="ingredient_id" defaultValue={ingredient.id} type="hidden" />
+    <div id="ingredients-index">
+      <div className="container">
+        <h1>All ingredients</h1>
+        <div className="row">
+          {props.ingredients.map((ingredient) => (
+            <div className="col-md-3 mb-4" key={ingredient.id}>
+              <div className="card">
+                <h2>{ingredient.name}</h2>
+                <img src={ingredient.image_url} alt="" />
+                <form onSubmit={handleSubmit}>
+                  <div>
+                    <input name="ingredient_id" defaultValue={ingredient.id} type="hidden" />
+                  </div>
+                  <div>
+                    Amount: <input name="amount" className="form-control" type="number" />
+                  </div>
+                  <button className="btn btn-primary mt-3">Add to pantry</button>
+                </form>
+              </div>
             </div>
-            <div>
-              Amount: <input name="amount" type="number" />
-            </div>
-            <button>Add to pantry</button>
-          </form>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
