@@ -1,6 +1,6 @@
 export function PantryItemsIndex(props) {
   return (
-    <div>
+    <div className="container">
       <h1>All pantry items</h1>
       {props.pantryItems.map((pantryItem) => (
         <div key={pantryItem.id}>

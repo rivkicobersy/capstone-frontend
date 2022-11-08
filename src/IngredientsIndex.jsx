@@ -6,7 +6,7 @@ export function IngredientsIndex(props) {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>All ingredients</h1>
       {props.ingredients.map((ingredient) => (
         <div key={ingredient.id}>

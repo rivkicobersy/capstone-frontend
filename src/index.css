@@ -1,8 +1,21 @@
-img {
-  width: 200px;
-  
-}
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
 html {
   scroll-behavior: smooth;
+}
+
+#root {
+  font-family: Futura;
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/wood_pattern.png');
+  min-height: 100vh;
+}
+
+.card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.navbar-brand {
+  font-family: 'Creepster', cursive;
+  font-size: 50px !important;
 }

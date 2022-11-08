@@ -1,21 +1,32 @@
-export function IngredientsNew(props) {
+import axios from "axios";
+
+export function IngredientsNew() {
+  const handleCreateIngredient = (params) => {
+    axios.post("http://localhost:3000/ingredients.json", params).then((response) => {
+      console.log("Created ingredients", response);
+      window.location.href = "/";
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onCreateIngredient(params, () => event.target.reset());
+    handleCreateIngredient(params, () => event.target.reset());
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>New Ingredient</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input name="name" type="text" />
+          Name: <input name="name" className="form-control" type="text" />
         </div>
         <div>
-          Image: <input name="image_url" type="text" />
+          Image: <input name="image_url" className="form-control" type="text" />
         </div>
-        <button type="submit">Create ingredient</button>
+        <button className="btn btn-primary mt-3" type="submit">
+          Create ingredient
+        </button>
       </form>
     </div>
   );
