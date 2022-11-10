@@ -9,6 +9,7 @@ import { IngredientsIndexPage } from "./IngredientsIndexPage";
 import { IngredientsShowPage } from "./IngredientsShowPage";
 import { IngredientsNew } from "./IngredientsNew";
 import { PantryItemsIndexPage } from "./PantryItemsIndexPage";
+import { SearchRecipesIndex } from "./SearchRecipesIndex";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/ingredients/:id" element={<IngredientsShowPage />} />
         <Route path="/ingredients/new" element={<IngredientsNew />} />
         <Route path="/pantry_items" element={<PantryItemsIndexPage />} />
+        <Route path="/search_recipes" element={<SearchRecipesIndex />} />
       </Routes>
       <Footer />
     </BrowserRouter>
