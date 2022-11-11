@@ -47,6 +47,11 @@ export function Header() {
                   Search Recipe
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/fav_recipes">
+                  Favourite Recipes
+                </Link>
+              </li>
               {localStorage.jwt === undefined ? (
                 <>
                   <li className="nav-item">

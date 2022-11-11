@@ -42,7 +42,8 @@ export function SearchRecipesIndex() {
     const params = {
       uri: searchRecipe.recipe.uri,
       label: searchRecipe.recipe.label,
-      ingredientLines: searchRecipe.recipe.ingredientLines.join(","),
+      url: searchRecipe.recipe.url,
+      image: searchRecipe.recipe.image,
     };
     console.log(params);
     axios.post("http://localhost:3000/fav_recipes", params).then((response) => {
