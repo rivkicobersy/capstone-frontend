@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { PantryItemsIndexPage } from "./PantryItemsIndexPage";
+import Heart from "react-heart";
 
 export function SearchRecipesIndex() {
   const [searchRecipes, setSearchRecipes] = useState([]);
   const [pantryItems, setPantryItems] = useState([]);
   const [searchRecipeName, setSearchRecipeName] = useState("");
+  const [active, setActive] = useState(false);
 
   const handleIndexPantryItems = () => {
     console.log("Going to get all pantry_items...");
@@ -37,6 +38,21 @@ export function SearchRecipesIndex() {
     handleCreateSearchRecipes(params, () => event.target.reset());
   };
 
+  const handleClickHeart = (searchRecipe) => {
+    const params = {
+      uri: searchRecipe.recipe.uri,
+      label: searchRecipe.recipe.label,
+      ingredientLines: searchRecipe.recipe.ingredientLines.join(","),
+    };
+    console.log(params);
+    axios.post("http://localhost:3000/fav_recipes", params).then((response) => {
+      console.log(response.data);
+      setSearchRecipes(
+        searchRecipes.map((r) => (r === searchRecipe ? { ...r, favourite: !searchRecipe.favourite } : r))
+      );
+    });
+  };
+
   return (
     <div id="search_recipes-index">
       <div className="container">
@@ -61,15 +77,18 @@ export function SearchRecipesIndex() {
         </form>
         <div className="row">
           {searchRecipes.map((searchRecipe) => (
-            <div key={searchRecipe.recipe} className="col-md-3 mb-4">
+            <div key={searchRecipe.recipe.uri} className="col-md-3 mb-4">
               <div className="card">
                 <div>{searchRecipe.recipe.label}</div>
-                <img src={searchRecipe.recipe.image} className="card-img-top" alt="" />
+                <img src={searchRecipe.recipe.image} className="card-img-top" alt="Card image cap" />
                 {searchRecipe.recipe.ingredientLines.map((ingredientLine) => (
                   <div key={ingredientLine}>
                     <p>{ingredientLine}</p>
                   </div>
                 ))}
+                <div style={{ width: "2rem" }}>
+                  <Heart isActive={searchRecipe.favourite} onClick={() => handleClickHeart(searchRecipe)} />
+                </div>
               </div>
             </div>
           ))}
@@ -80,6 +99,8 @@ export function SearchRecipesIndex() {
 }
 
 // fix length of cards
-// TODO add ingredient and pantry items based on recipe
 
-// delete pantry items
+// delete pantry items?
+// favourite recipes
+// TODO add ingredient and pantry items based on recipe
+// add clanedar
