@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { EmailShareButton, TwitterShareButton } from "react-share";
+import { EmailIcon } from "react-share";
 
-export function PantryItemsIndexPage() {
+export function PantryItemsIndexPage(props) {
   const [pantryItems, setPantryItems] = useState([]);
 
   const handleIndexPantryItems = () => {
@@ -12,11 +14,38 @@ export function PantryItemsIndexPage() {
     });
   };
 
+  const handleUpdatePantryItem = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    console.log("handleUpdatePantryItem", params);
+    axios.patch(`http://localhost:3000/pantry_items/${params.get("id")}.json`, params).then((response) => {
+      console.log(response.data);
+      // setPantryItems(
+      //   pantryItems.map((pantryItem) => {
+      //     if (pantryItem.id === response.data.id) {
+      //       return response.data;
+      //     } else {
+      //       return pantryItem;
+      //     }
+      //   })
+      // );
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onUpdatePantryItem(props.pantryItem.ingredient.id, params, () => event.target.reset());
+  };
   useEffect(handleIndexPantryItems, []);
 
   return (
     <div id="pantryItems-index">
       <div className="container">
+        <EmailShareButton subject="hello">
+          <EmailIcon size={32} round={true} /> Share
+        </EmailShareButton>
+
         <h1>My pantry items</h1>
         <div className="row">
           {pantryItems.map((pantryItem) => (
@@ -26,12 +55,12 @@ export function PantryItemsIndexPage() {
                 <div className="card-body">
                   <h5 className="card-name">{pantryItem.ingredient.name}</h5>
                 </div>
-                <div>Amount: {pantryItem.amount}</div>
-                <form action="">
+                <form onSubmit={handleUpdatePantryItem}>
+                  <input type="hidden" name="id" defaultValue={pantryItem.id} />
                   <div>
-                    <input name="amount" DefaultValue={pantryItem.amount} className="form-control" type="number" />
+                    <input name="amount" defaultValue={pantryItem.amount} className="form-control" type="number" />
                   </div>
-                  <button type="submit" className="btn btn-primary mt-3">
+                  <button className="btn btn-primary mt-3" type="submit">
                     Update
                   </button>
                 </form>
