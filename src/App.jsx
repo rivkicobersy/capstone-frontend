@@ -11,6 +11,7 @@ import { IngredientsNew } from "./IngredientsNew";
 import { PantryItemsIndexPage } from "./PantryItemsIndexPage";
 import { SearchRecipesIndex } from "./SearchRecipesIndex";
 import { FavRecipesIndex } from "./FavRecipesIndex";
+import { CalendarIndex } from "./CalendarIndex";
 
 function App() {
   return (

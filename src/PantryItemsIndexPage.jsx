@@ -26,6 +26,15 @@ export function PantryItemsIndexPage() {
                 <div className="card-body">
                   <h5 className="card-name">{pantryItem.ingredient.name}</h5>
                 </div>
+                <div>Amount: {pantryItem.amount}</div>
+                <form action="">
+                  <div>
+                    <input name="amount" DefaultValue={pantryItem.amount} className="form-control" type="number" />
+                  </div>
+                  <button type="submit" className="btn btn-primary mt-3">
+                    Update
+                  </button>
+                </form>
               </div>
             </div>
           ))}
