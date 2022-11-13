@@ -23,7 +23,7 @@ export function IngredientsShowPage() {
           <div className="card">
             <p className="card-name">Name: {ingredient.name}</p>
             <img src={ingredient.image_url} className="card-img-top" alt="" />
-            <a className="btn btn-primary" href="/ingredients">
+            <a className="btn btn-primary" href="/">
               Back to all ingredients
             </a>
           </div>

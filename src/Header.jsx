@@ -27,11 +27,11 @@ export function Header() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/ingredients">
                   All ingredients
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/ingredients/new">
                   New ingredient

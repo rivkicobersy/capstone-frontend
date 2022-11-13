@@ -1,12 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IngredientsIndex } from "./IngredientsIndex";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 export function Home() {
   const [ingredients, setIngredients] = useState([]);
-  const [value, onChange] = useState(new Date());
 
   const handleIndexIngredients = () => {
     console.log("handleIndexIngredients");
@@ -39,9 +36,6 @@ export function Home() {
 
   return (
     <div>
-      <div className="container">
-        <Calendar onChange={onChange} value={value} />
-      </div>
       <IngredientsIndex ingredients={ingredients} onCreatePantryItem={handleCreatePantryItem} />
     </div>
   );
