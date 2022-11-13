@@ -44,6 +44,7 @@ export function SearchRecipesIndex() {
       label: searchRecipe.recipe.label,
       url: searchRecipe.recipe.url,
       image: searchRecipe.recipe.image,
+      // ingredientsFood: searchRecipe.recipe.ingredientsFood,
     };
     console.log(params);
     axios.post("http://localhost:3000/fav_recipes", params).then((response) => {
@@ -51,6 +52,10 @@ export function SearchRecipesIndex() {
       setSearchRecipes(
         searchRecipes.map((r) => (r === searchRecipe ? { ...r, favourite: !searchRecipe.favourite } : r))
       );
+      console.log("create ingredients", searchRecipe);
+      searchRecipe.recipe.ingredients.forEach((ingredient) => {
+        axios.post("http://localhost:3000/ingredients", { name: ingredient.food, image_url: ingredient.image });
+      });
     });
   };
 

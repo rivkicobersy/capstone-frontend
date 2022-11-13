@@ -30,6 +30,7 @@ export function FavRecipesIndex() {
             <div className="card">
               <h4>{favRecipe.label}</h4>
               <img src={favRecipe.image} alt="" />
+              <p>{favRecipe.ingredientLines}</p>
               <div>
                 <a target="_blank" href={favRecipe.url}>
                   Link to recipe
