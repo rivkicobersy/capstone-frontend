@@ -104,9 +104,5 @@ export function SearchRecipesIndex() {
   );
 }
 
-// fix length of cards
-
-// delete pantry items?
-// favourite recipes
-// TODO add ingredient and pantry items based on recipe
+// TODO fix length of cards
 // add clanedar
