@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export function PantryItemsIndexPage() {
-  const [searchFilter, setSearchFilter] = useState("");
   const [pantryItems, setPantryItems] = useState([]);
 
   const handleIndexPantryItems = () => {

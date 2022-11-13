@@ -22,7 +22,9 @@ export function IngredientsIndex(props) {
                   <div>
                     Amount: <input name="amount" className="form-control" type="number" />
                   </div>
-                  <button className="btn btn-primary mt-3">Add to pantry</button>
+                  <button type="submit" className="btn btn-primary mt-3">
+                    Add to pantry
+                  </button>
                 </form>
               </div>
             </div>

@@ -34,5 +34,3 @@ function App() {
 }
 
 export default App;
-
-// TODO finish using routes

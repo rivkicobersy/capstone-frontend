@@ -34,7 +34,11 @@ export function FavRecipesIndex() {
                 <a target="_blank" href={favRecipe.url}>
                   Link to recipe
                 </a>
-                <button onClick={() => handleDestroyFavRecipe(favRecipe)}>unfavourite</button>
+                <div>
+                  <button className="btn btn-primary mt-3" onClick={() => handleDestroyFavRecipe(favRecipe)}>
+                    unfavourite
+                  </button>
+                </div>
               </div>
             </div>
           </div>
