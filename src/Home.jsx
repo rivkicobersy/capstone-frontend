@@ -10,7 +10,7 @@ export function Home() {
 
   const handleIndexIngredients = () => {
     console.log("handleIndexIngredients");
-    axios.get("/ingredients.json").then((response) => {
+    axios.get("http://localhost:3000/ingredients.json").then((response) => {
       console.log(response.data);
       setIngredients(response.data);
     });
@@ -20,7 +20,7 @@ export function Home() {
 
   const handleIndexPantryItems = () => {
     console.log("handleIndexPantryItems");
-    axios.get("/pantry_items.json").then((response) => {
+    axios.get("http://localhost:3000/pantry_items.json").then((response) => {
       console.log(response.data);
       setPantryItems(response.data);
     });
@@ -28,7 +28,7 @@ export function Home() {
 
   const handleCreatePantryItem = (params, successCallback) => {
     console.log("handleCreatePantryItem", params);
-    axios.post("/pantry_items.json", params).then((response) => {
+    axios.post("http://localhost:3000/pantry_items.json", params).then((response) => {
       setPantryItems([...pantryItems, response.data]);
       successCallback();
     });
