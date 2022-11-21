@@ -7,7 +7,7 @@ export function FavRecipesShowPage() {
   const params = useParams();
 
   const handleShowFavRecipe = () => {
-    axios.get(`http://localhost:3000/fav_recipes/${params.id}.json`).then((response) => {
+    axios.get(`/fav_recipes/${params.id}.json`).then((response) => {
       console.log(response.data);
       setFavRecipe(response.data);
     });

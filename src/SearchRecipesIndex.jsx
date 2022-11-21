@@ -10,7 +10,7 @@ export function SearchRecipesIndex() {
 
   const handleIndexPantryItems = () => {
     console.log("Going to get all pantry_items...");
-    axios.get("http://localhost:3000/pantry_items.json").then((response) => {
+    axios.get("/pantry_items.json").then((response) => {
       console.log(response);
       setPantryItems(response.data);
     });
@@ -20,7 +20,7 @@ export function SearchRecipesIndex() {
 
   const handleCreateSearchRecipes = (params) => {
     console.log(params.get("recipe"));
-    axios.get(`http://localhost:3000/search_recipes.json?q=${params.get("recipe")}`).then((response) => {
+    axios.get(`/search_recipes.json?q=${params.get("recipe")}`).then((response) => {
       console.log("Created search_recipes", response);
       setSearchRecipes(response.data);
     });
@@ -47,14 +47,14 @@ export function SearchRecipesIndex() {
       // ingredientsFood: searchRecipe.recipe.ingredientsFood,
     };
     console.log(params);
-    axios.post("http://localhost:3000/fav_recipes", params).then((response) => {
+    axios.post("/fav_recipes", params).then((response) => {
       console.log(response.data);
       setSearchRecipes(
         searchRecipes.map((r) => (r === searchRecipe ? { ...r, favourite: !searchRecipe.favourite } : r))
       );
       console.log("create ingredients", searchRecipe);
       searchRecipe.recipe.ingredients.forEach((ingredient) => {
-        axios.post("http://localhost:3000/ingredients", { name: ingredient.food, image_url: ingredient.image });
+        axios.post("/ingredients", { name: ingredient.food, image_url: ingredient.image });
       });
     });
   };

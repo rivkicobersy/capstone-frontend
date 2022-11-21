@@ -7,7 +7,7 @@ export function IngredientsIndexPage() {
 
   const handleIndexIngredients = () => {
     console.log("Going to get all ingredients...");
-    axios.get("http://localhost:3000/ingredients.json").then((response) => {
+    axios.get("/ingredients.json").then((response) => {
       console.log(response);
       setIngredients(response.data);
     });

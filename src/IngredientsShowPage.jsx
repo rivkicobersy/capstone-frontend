@@ -7,7 +7,7 @@ export function IngredientsShowPage() {
   const params = useParams();
 
   const handleShowIngredient = () => {
-    axios.get(`http://localhost:3000/ingredients/${params.id}.json`).then((response) => {
+    axios.get(`/ingredients/${params.id}.json`).then((response) => {
       console.log(response.data);
       setIngredient(response.data);
     });

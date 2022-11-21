@@ -6,7 +6,7 @@ export function FavRecipesIndex() {
 
   const handleIndexFavRecipes = () => {
     console.log("Going to get all fav_recipes...");
-    axios.get("http://localhost:3000/fav_recipes.json").then((response) => {
+    axios.get("/fav_recipes.json").then((response) => {
       console.log(response);
       setFavRecipes(response.data);
     });
@@ -14,7 +14,7 @@ export function FavRecipesIndex() {
 
   const handleDestroyFavRecipe = (favRecipe) => {
     console.log("handleDestroyFavRecipe", favRecipe);
-    axios.delete(`http://localhost:3000/fav_recipes/${favRecipe.id}.json`).then((response) => {
+    axios.delete(`/fav_recipes/${favRecipe.id}.json`).then((response) => {
       setFavRecipes(favRecipes.filter((p) => p.id !== favRecipe.id));
     });
   };

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function IngredientsNew() {
   const handleCreateIngredient = (params) => {
-    axios.post("http://localhost:3000/ingredients.json", params).then((response) => {
+    axios.post("/ingredients.json", params).then((response) => {
       console.log("Created ingredients", response);
       window.location.href = "/";
     });

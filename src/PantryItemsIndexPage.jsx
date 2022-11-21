@@ -8,7 +8,7 @@ export function PantryItemsIndexPage(props) {
 
   const handleIndexPantryItems = () => {
     console.log("Going to get all pantry_items...");
-    axios.get("http://localhost:3000/pantry_items.json").then((response) => {
+    axios.get("/pantry_items.json").then((response) => {
       console.log(response);
       setPantryItems(response.data);
     });
@@ -18,7 +18,7 @@ export function PantryItemsIndexPage(props) {
     event.preventDefault();
     const params = new FormData(event.target);
     console.log("handleUpdatePantryItem", params);
-    axios.patch(`http://localhost:3000/pantry_items/${params.get("id")}.json`, params).then((response) => {
+    axios.patch(`/pantry_items/${params.get("id")}.json`, params).then((response) => {
       console.log(response.data);
       // setPantryItems(
       //   pantryItems.map((pantryItem) => {
